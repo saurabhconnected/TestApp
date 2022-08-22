@@ -10,7 +10,7 @@ import Foundation
 protocol LoginViewModelProtocal {
     var countryList: [Country] { get }
     var selectedCountry: Country? { get set }
-    func userExists(userName: String, password: String) -> Bool
+    func userExists(username: String, password: String) -> Bool
 }
 
 class LoginViewModel: LoginViewModelProtocal {
@@ -20,8 +20,8 @@ class LoginViewModel: LoginViewModelProtocal {
     }()
   
     
-    func userExists(userName: String, password: String) -> Bool {
-        CoreDataManager.fetchUser(userName: userName, password: password) != nil
+    func userExists(username: String, password: String) -> Bool {
+        CoreDataManager.fetchUser(username: username, password: password) != nil
     }
     
     private func fetchCountryList() -> [Country] {

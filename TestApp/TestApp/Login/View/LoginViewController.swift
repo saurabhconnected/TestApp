@@ -10,12 +10,12 @@ import UIKit
 class LoginViewController: UIViewController {
     
     enum StringConstant {
-        static let userNameErrorMessage = "Username must be at least 3 character long"
+        static let usernameErrorMessage = "Username must be at least 3 character long"
         static let passwordErrorMessage = "Password must not be empty"
         static let countryErrorMessage = "Country not selected"
     }
     
-    @IBOutlet weak private var userNameTextField: CustomTextField!
+    @IBOutlet weak private var usernameTextField: CustomTextField!
     @IBOutlet weak private var passwordTextField: CustomTextField!
     @IBOutlet weak private var countryTextField: CustomTextField!
     @IBOutlet weak private var loginButton: UIButton!
@@ -35,15 +35,15 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = #colorLiteral(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
         
-        userNameTextField.placeholderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
+        usernameTextField.placeholderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
         passwordTextField.placeholderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
         countryTextField.placeholderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
     }
     
     private func validateInput() -> Bool {
         var valid = true
-        if (userNameTextField.text ?? "").count < 3 {
-            userNameTextField.showError(message: StringConstant.userNameErrorMessage)
+        if (usernameTextField.text ?? "").count < 3 {
+            usernameTextField.showError(message: StringConstant.usernameErrorMessage)
             valid = false
         }
         if (passwordTextField.text ?? "").isEmpty {
@@ -80,23 +80,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func login(_ sender: Any) {
-        var title = "User does not exists!"
-        var detail = "Either User '\(userNameTextField.text ?? "")' does not exist in database or the password is incorrect"
+        closePicker()
+        view.endEditing(true)
         
-        defer {
-            if validateInput() {
+        if validateInput() {
+            guard viewModel.userExists(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "") else {
+                
+                let title = "User does not exists!"
+                let detail = "Either User '\(usernameTextField.text ?? "")' does not exist in database or the password is incorrect"
+                
                 let alert = UIAlertController(title: title, message: detail,  preferredStyle: UIAlertController.Style.alert)
                 let ok = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel)
                 alert.addAction(ok)
                 present(alert, animated: true)
+                return
             }
-        }
-        
-        if validateInput() {
-            guard viewModel.userExists(userName: userNameTextField.text ?? "", password: passwordTextField.text ?? "") else { return }
             
-            title = "User Exists!"
-            detail = "User '\(userNameTextField.text ?? "")' exist in database"
+            let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
+            self.navigationController?.pushViewController(homeVC, animated: true)
         }
     }
     

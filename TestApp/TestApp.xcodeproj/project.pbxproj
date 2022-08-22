@@ -20,6 +20,10 @@
 		093056AD28B3C6370013609A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093056AC28B3C6370013609A /* LoginViewModel.swift */; };
 		093056AF28B3C8130013609A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093056AE28B3C8130013609A /* Global.swift */; };
 		09FC7CDC28B3F2550016325D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CDB28B3F2550016325D /* CoreDataManager.swift */; };
+		09FC7CDF28B401040016325D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CDE28B401040016325D /* HomeViewController.swift */; };
+		09FC7CE328B401330016325D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE228B401330016325D /* HomeViewModel.swift */; };
+		09FC7CE528B4016D0016325D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE428B4016D0016325D /* NetworkManager.swift */; };
+		09FC7CE828B401C60016325D /* HomeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE728B401C60016325D /* HomeUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		093056AC28B3C6370013609A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		093056AE28B3C8130013609A /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		09FC7CDB28B3F2550016325D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		09FC7CDE28B401040016325D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		09FC7CE228B401330016325D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		09FC7CE428B4016D0016325D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		09FC7CE728B401C60016325D /* HomeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 				0930568928B381FA0013609A /* AppDelegate.swift */,
 				0930568B28B381FA0013609A /* SceneDelegate.swift */,
 				093056A628B3C58D0013609A /* Login */,
+				09FC7CDD28B400C50016325D /* Home */,
 				0930568F28B381FA0013609A /* Main.storyboard */,
 				093056A328B3C5530013609A /* Suporting Files */,
 				093056A028B385B60013609A /* Utility */,
@@ -90,6 +99,7 @@
 				093056A128B385D20013609A /* CustomTextField.swift */,
 				09FC7CDB28B3F2550016325D /* CoreDataManager.swift */,
 				093056AE28B3C8130013609A /* Global.swift */,
+				09FC7CE428B4016D0016325D /* NetworkManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -134,6 +144,40 @@
 				093056AC28B3C6370013609A /* LoginViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		09FC7CDD28B400C50016325D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CE628B401B20016325D /* Model */,
+				09FC7CE128B4011C0016325D /* ViewModel */,
+				09FC7CE028B4010A0016325D /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		09FC7CE028B4010A0016325D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CDE28B401040016325D /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09FC7CE128B4011C0016325D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CE228B401330016325D /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09FC7CE628B401B20016325D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CE728B401C60016325D /* HomeUser.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +252,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FC7CE528B4016D0016325D /* NetworkManager.swift in Sources */,
 				093056AF28B3C8130013609A /* Global.swift in Sources */,
+				09FC7CE328B401330016325D /* HomeViewModel.swift in Sources */,
 				0930568E28B381FA0013609A /* LoginViewController.swift in Sources */,
+				09FC7CE828B401C60016325D /* HomeUser.swift in Sources */,
 				0930569428B381FA0013609A /* TestApp.xcdatamodeld in Sources */,
 				093056A228B385D20013609A /* CustomTextField.swift in Sources */,
 				0930568A28B381FA0013609A /* AppDelegate.swift in Sources */,
+				09FC7CDF28B401040016325D /* HomeViewController.swift in Sources */,
 				093056AA28B3C5D60013609A /* Country.swift in Sources */,
 				09FC7CDC28B3F2550016325D /* CoreDataManager.swift in Sources */,
 				0930568C28B381FA0013609A /* SceneDelegate.swift in Sources */,

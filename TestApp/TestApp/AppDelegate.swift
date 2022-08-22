@@ -79,11 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func addUsers() {
-        CoreDataManager.addUser(userName: "user1", password: "user1")
-        CoreDataManager.addUser(userName: "user2", password: "user2")
-        CoreDataManager.addUser(userName: "user3", password: "user3")
-        CoreDataManager.addUser(userName: "user4", password: "user4")
-        CoreDataManager.addUser(userName: "user5", password: "user5")
+        CoreDataManager.addUser(username: "user1", password: "user1")
+        CoreDataManager.addUser(username: "user2", password: "user2")
+        CoreDataManager.addUser(username: "user3", password: "user3")
+        CoreDataManager.addUser(username: "user4", password: "user4")
+        CoreDataManager.addUser(username: "user5", password: "user5")
         
         CoreDataManager.saveData()
     }
