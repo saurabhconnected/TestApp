@@ -96,7 +96,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
+            let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            homeVC.viewModel = HomeViewModel()
             self.navigationController?.pushViewController(homeVC, animated: true)
         }
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var viewModel: HomeViewModelProtocal = HomeViewModel()
+    var viewModel: HomeViewModelProtocal!
     @IBOutlet weak private var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -18,12 +18,8 @@ class HomeViewController: UIViewController {
             guard let self = self else { return }
             self.tableView.reloadData()
         }
-        
         viewModel.fetchUsers()
     }
-    
-
-
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -39,5 +35,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = "\(user.address.suite), \(user.address.street), \(user.address.city)"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mapVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        mapVC.viewModel = MapViewModel()
+        mapVC.viewModel.address = viewModel.userList[indexPath.row].address
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
 }

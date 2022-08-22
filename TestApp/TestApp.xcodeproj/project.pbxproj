@@ -24,6 +24,8 @@
 		09FC7CE328B401330016325D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE228B401330016325D /* HomeViewModel.swift */; };
 		09FC7CE528B4016D0016325D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE428B4016D0016325D /* NetworkManager.swift */; };
 		09FC7CE828B401C60016325D /* HomeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CE728B401C60016325D /* HomeUser.swift */; };
+		09FC7CEC28B411430016325D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CEB28B411430016325D /* MapViewController.swift */; };
+		09FC7CEE28B4123B0016325D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FC7CED28B4123B0016325D /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		09FC7CE228B401330016325D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		09FC7CE428B4016D0016325D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		09FC7CE728B401C60016325D /* HomeUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUser.swift; sourceTree = "<group>"; };
+		09FC7CEB28B411430016325D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		09FC7CED28B4123B0016325D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			children = (
 				0930568928B381FA0013609A /* AppDelegate.swift */,
 				0930568B28B381FA0013609A /* SceneDelegate.swift */,
+				09FC7CE928B411250016325D /* Map */,
 				093056A628B3C58D0013609A /* Login */,
 				09FC7CDD28B400C50016325D /* Home */,
 				0930568F28B381FA0013609A /* Main.storyboard */,
@@ -180,6 +185,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		09FC7CE928B411250016325D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CEA28B411320016325D /* View */,
+				09FC7CEF28B412900016325D /* View Model */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		09FC7CEA28B411320016325D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CEB28B411430016325D /* MapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09FC7CEF28B412900016325D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				09FC7CED28B4123B0016325D /* MapViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,8 +293,10 @@
 				09FC7CDF28B401040016325D /* HomeViewController.swift in Sources */,
 				093056AA28B3C5D60013609A /* Country.swift in Sources */,
 				09FC7CDC28B3F2550016325D /* CoreDataManager.swift in Sources */,
+				09FC7CEE28B4123B0016325D /* MapViewModel.swift in Sources */,
 				0930568C28B381FA0013609A /* SceneDelegate.swift in Sources */,
 				093056AD28B3C6370013609A /* LoginViewModel.swift in Sources */,
+				09FC7CEC28B411430016325D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

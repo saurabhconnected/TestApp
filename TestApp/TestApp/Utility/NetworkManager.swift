@@ -10,25 +10,28 @@ import Foundation
 class NetworkManager {
     
     static func fetchUserList(onCompletion completion: @escaping ((Result<[HomeUser], Error>) -> Void)) {
-        let urlStr = "https://jsonplaceholder.typicode.com/users"
-        if let url = URL(string: urlStr) {
-            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-                if let error = error {
+        dataTask(urlString: "https://jsonplaceholder.typicode.com/users") { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let users = try JSONDecoder().decode([HomeUser].self, from: data)
+                    completion(.success(users))
+                } catch let error {
                     completion(.failure(error))
-                } else if let data = data {
-                    do {
-                        let users = try JSONDecoder().decode([HomeUser].self, from: data)
-                        completion(.success(users))
-                    } catch let error {
-                        completion(.failure(error))
-                    }
-                } else {
-                    completion(.failure(HTTPError.somethingWentWrong))
                 }
+            } else {
+                completion(.failure(HTTPError.somethingWentWrong))
             }
+        }
+    }
+    
+    static func dataTask(urlString: String, onCompletion completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        if let url = URL(string: urlString) {
+            let task = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: completion)
             task.resume()
         } else {
-            completion(.failure(HTTPError.invalidURL))
+            completion(nil, nil, HTTPError.invalidURL)
         }
     }
 }
